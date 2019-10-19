@@ -1,0 +1,123 @@
+git clone https://github.com/dappuniversity/starter_kit elections
+dir
+git status
+git log
+npm install
+
+open in sublime text
+create a solidity file with type nul > filename.sol(should be capitalize)
+write code in solidity
+create your own migration file and make suitable changes to it(change name from migrations to name of contract). 
+
+and then compile
+truffle compile
+truffle migrate
+
+open ganache
+give a name 
+add truffle config-js file
+
+
+open
+truffle console
+
+(name in migration file thats basically name of smartcontract)Election.deployed().then(function(instance){app=instance})
+This is because of the asynchronous nature of smart contract development.we have deployed it and it will return promise now we need to call then function over it pass an call back function having instance as an argument i.e basically deployed contract and then pass it app variable
+
+Then just playaround with stuff
+
+truffle(development)> app.address
+'0xB157Ddf222383F51e48D6D360A4e7c62b6865E83'
+truffle(development)> app.candidate()
+'Candidate 1'
+
+Now when we open ganache we see that our first acc bal is reduced as read to blockchain is free but write costs some amount by default it will go from first account in the list
+
+
+after completeing the work
+truffle migrate --reset
+
+
+
+
+
+
+
+why testing is important?
+As we are deploying the smart contract to the blockchain and our blockchain is immutable so we deploy it without seeing and suppose it contains bugs then initially as it is deployed we wasted out ether in the form of gas and then the person calling this fn to write into blockchain will also waste the ether so to avoid this we have to run tests
+
+once deployed the buggy contract we have to remove it and redeploy new one into it and this will not be into same state as old one will have new address and all the previous txn will go
+
+
+
+
+
+
+README 
+Election - DAPP Tutorial
+Build your first decentralized application, or Dapp, on the Ethereum Network with this tutorial!
+
+
+Follow the steps below to download, install, and run this project.
+
+Dependencies
+Install these prerequisites to follow along with the tutorial. See free video tutorial or a full explanation of each prerequisite.
+
+NPM: https://nodejs.org
+Truffle: https://github.com/trufflesuite/truffle
+Ganache: http://truffleframework.com/ganache/
+Metamask: https://metamask.io/
+Step 1. Clone the project
+git clone https://github.com/dappuniversity/election
+
+Step 2. Install dependencies
+$ cd election
+$ npm install
+Step 3. Start Ganache
+Open the Ganache GUI client that you downloaded and installed. This will start your local blockchain instance. See free video tutorial for full explanation.
+
+Step 4. Compile & Deploy Election Smart Contract
+$ truffle migrate --reset You must migrate the election smart contract each time your restart ganache.
+
+Step 5. Configure Metamask
+See free video tutorial for full explanation of these steps:
+
+Unlock Metamask
+Connect metamask to your local Etherum blockchain provided by Ganache.
+Import an account provided by ganache.
+Step 6. Run the Front End Application
+$ npm run dev Visit this URL in your browser: http://localhost:3000
+
+
+
+
+
+
+C:\Users\keval\Desktop\project\voting_dapp\election-2019_update\election-2019_update>truffle
+Truffle v5.0.34 - a development framework for Ethereum
+
+Usage: truffle <command> [options]
+
+Commands:
+  build     Execute build pipeline (if configuration present)
+  compile   Compile contract source files
+  config    Set user-level configuration options
+  console   Run a console with contract abstractions and commands available
+  create    Helper to create new contracts, migrations and tests
+  debug     Interactively debug any transaction on the blockchain (experimental)
+  deploy    (alias for migrate)
+  develop   Open a console with a local development blockchain
+  exec      Execute a JS module within this Truffle environment
+  help      List all commands or provide information about a specific command
+  init      Initialize new and empty Ethereum project
+  install   Install a package from the Ethereum Package Registry
+  migrate   Run migrations to deploy contracts
+  networks  Show addresses for deployed contracts on each network
+  obtain    Fetch and cache a specified compiler
+  opcode    Print the compiled opcodes for a given contract
+  publish   Publish a package to the Ethereum Package Registry
+  run       Run a third-party command
+  test      Run JavaScript and Solidity tests
+  unbox     Download a Truffle Box, a pre-built Truffle project
+  version   Show version number and exit
+  watch     Watch filesystem for changes and rebuild the project automatically
